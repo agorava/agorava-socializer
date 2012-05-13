@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Socializer Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <h:outputStylesheet name="bootstrap.min.css" library="css" />
+    <h:outputStylesheet name="bootstrap-responsive.min.css" library="css" />
+    <h:outputStylesheet name="screen.css" library="css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <h:outputScript name="bootstrap.min.js" library="javascript" />
+    <h:outputScript name="main.js" library="javascript" />
+</h:head>
+<h:body>
+
+    <a target="_blank" href="https://github.com/agorava/agorava-socializer" class="hidden-phone"> <img
+        style="position: fixed; top: 0; left: 0; border: 0; z-index: 5000"
+        src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"
+        alt="Fork me on GitHub" />
+    </a>
+    
+    <h:panelGroup id="container" styleClass="container" layout="block">
+        <div class="row">
+            <div class="span12">
+                <div class="title">
+                    <h1>Socializer</h1>
+                    <h6>When Java go Social</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span8">
+                <ui:insert name="content">
+                    <div class="well">No timeline to display</div>
+                </ui:insert>
+            </div>
+
+            <div class="span4">
+                <div class="well">
+                    <h6>Profile</h6>
+
+                    <h:panelGroup rendered="#{(empty currentSession) or !(currentSession.connected)}">
+                        <h:outputText
+                            value="You are not connected yet to a Social Network service. Please choose one in list below." />
+                    </h:panelGroup>
+
+                    <h:panelGroup rendered="#{not(empty currentSession) and currentSession.connected}">
+                        <h:panelGrid columns="2" width="100%" columnClasses="avatar,verticalTop">
+                            <h:graphicImage value="#{currentSession.userProfile.profileImageUrl}" />
+
+                            <h:panelGroup>
+                                <p>
+                                    <h:outputText value="#{currentSession.userProfile.fullName}" />
+                                </p>
+                                <p>
+                                    <h:outputText value="Working with #{currentSession.name}" />
+                                </p>
+                            </h:panelGroup>
+                        </h:panelGrid>
+
+                        <h6>Switch to another Social network</h6>
+                        <h:form>
+                            <h:selectOneRadio id="chooseService" value="#{socialClient.currentSessionName}"
+                                layout="pageDirection">
+                                <f:selectItems value="#{socialClient.sessions}" var="serv" itemValue="#{serv.name}"
+                                    itemLabel="#{serv.name}" />
+                                <f:ajax render=":container" onevent="triggerAllData" />
+                            </h:selectOneRadio>
+                        </h:form>
+                    </h:panelGroup>
+                </div>
+
+                <div class="well">
+                    <h6>Available services</h6>
+
+                    <h:form>
+                        <ul class="unstyled social-services clearfix">
+                            <ui:repeat var="service" value="#{socialClient.manager.listOfServices}">
+                                <li><h:outputLink value="#"
+                                        onclick="window.open('startoauth.jsf?service=#{service}','oauth','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,width=400,height=400,modal=yes')">
+                                        <h:graphicImage id="serviceIcon" library="gfx" name="#{service}.png" height="48"
+                                            width="48" styleClass="tooltip-bottom" title="#{service}" />
+                                    </h:outputLink></li>
+                            </ui:repeat>
+                        </ul>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </h:panelGroup>
+</h:body>
+</html>
