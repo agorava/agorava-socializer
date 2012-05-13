@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<f:metadata>
+	<f:viewParam name="#{currentHub.verifierParamName}"
+		value="#{currentSession.verifier}" required="true"
+		requiredMessage="We didn't get the authorization from #{currentService.type}. Please go back and Try Again !" />
+	<f:event type="preRenderView"
+		listener="#{socialClient.connectCurrentService()}" />
+</f:metadata>
+<h:head>
+	<script type="text/javascript">
+		function moveOn()
+		{
+			window.opener.location.reload();
+			window.close();
+		}
+
+		moveOn();
+	</script>
+</h:head>
+<h:body>
+	<h:messages />
+	<h1>Agorava client Example</h1>
+
+	<p>Getting Authorization from #{currentService.type}</p>
+        You're ready to use
+        <h:outputLink value="#" onclick="moveOn();">socializer</h:outputLink>
+
+</h:body>
+</html>

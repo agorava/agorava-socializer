@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+<f:metadata>
+    <f:viewParam name="service" value="#{socialClient.selectedService}" required="true"
+        requiredMessage="No service specified" />
+    <f:event type="preRenderView" listener="#{socialClient.serviceInit}" />
+</f:metadata>
+
+</html>
