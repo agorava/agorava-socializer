@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html"
-                template="/WEB-INF/templates/default.xhtml">
-    <ui:define name="content">
-        <h:messages/>
-        <h1>Agorava client Example</h1>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:messages />
+		<h1>Agorava client Example</h1>
 
-        <p>Your (future) Timeline</p>
-        <h:form id="form">
-            <h:panelGroup id="timeline"
-                          rendered="#{not(empty currentSession) and currentSession.connected}">
-                Welcome #{currentSession.userProfile.fullName}<br/>
-                You are now working with #{currentSession.name}<br/>
-                <ui:include src="#{socialClient.timeLineUrl}"/>
-                <br/>
+		<p>Your (future) Timeline</p>
+		<h:form id="form">
+			<h:panelGroup id="timeline"
+				rendered="#{not(empty currentSession) and currentSession.connected}">
+                Welcome #{currentSession.userProfile.fullName}<br />
+                You are now working with #{currentSession.name}<br />
+				<ui:include src="#{socialClient.timeLineUrl}" />
+				<br />
                 You can close connexion on
-            <h:commandLink
-                    action="#{socialClient.resetConnection}"
-                    value="#{currentSession.name}"/>
-                <br/>
+            <h:commandLink action="#{socialClient.resetConnection}"
+					value="#{currentSession.name}" />
+				<br />
                 Or choose the Social network you want to work with.. :
             <h:selectOneRadio id="chooseService"
-                              value="#{socialClient.currentSessionName}">
-                <f:selectItems value="#{socialClient.sessions}" var="serv"
-                               itemValue="#{serv.name}" itemLabel="#{serv.name}"/>
-                <f:ajax render="form"/>
-            </h:selectOneRadio>
-            </h:panelGroup>
+					value="#{socialClient.currentSessionName}">
+					<f:selectItems value="#{socialClient.sessions}" var="serv"
+						itemValue="#{serv.name}" itemLabel="#{serv.name}" />
+					<f:ajax render="form" />
+				</h:selectOneRadio>
+			</h:panelGroup>
             You can add a new connexion to those social network :
             <ul>
 				<ui:repeat var="service"
@@ -39,8 +38,8 @@
                 </h:commandLink></li>
 				</ui:repeat>
 			</ul>
-            <br/>
-            
-        </h:form>
-    </ui:define>
+			<br />
+
+		</h:form>
+	</ui:define>
 </ui:composition>

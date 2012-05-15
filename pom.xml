@@ -63,7 +63,7 @@
         <version.primefaces>3.3-SNAPSHOT</version.primefaces>
         <version.primefaces.themes>1.0.4</version.primefaces.themes>
         <version.prettytime>1.0.8.Final</version.prettytime>
-	    <version.agorava>0.5.0-SNAPSHOT</version.agorava>
+        <version.agorava>0.5.0-SNAPSHOT</version.agorava>
 
     </properties>
 
@@ -75,19 +75,19 @@
             <layout>default</layout>
         </repository>
         <repository>
-              <id>jboss-public-repository-group</id>
-              <name>JBoss Public Repository Group</name>
-              <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-              <layout>default</layout>
-              <releases>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Repository Group</name>
+            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+            <layout>default</layout>
+            <releases>
                 <enabled>true</enabled>
                 <updatePolicy>never</updatePolicy>
-              </releases>
-              <snapshots>
+            </releases>
+            <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>never</updatePolicy>
-              </snapshots>
-            </repository>
+            </snapshots>
+        </repository>
     </repositories>
 
     <dependencyManagement>

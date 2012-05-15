@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html" template="/WEB-INF/templates/default.xhtml">
-    <ui:define name="content">
-        <h:form>
-            <ui:include src="#{socialClient.timeLineUrl}" />
-            
-            <h:panelGroup rendered="#{(empty currentSession) or !(currentSession.connected)}">
-                <div class="well">
-                    <h6>Sorry, but...</h6>
-                    <h:outputText
-                        value="... you need to be connected at least to one Social Network in order to display a timeline." />
-                </div>
-            </h:panelGroup>
-        </h:form>
-    </ui:define>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<ui:include src="#{socialClient.timeLineUrl}" />
+
+			<h:panelGroup
+				rendered="#{(empty currentSession) or !(currentSession.connected)}">
+				<div class="well">
+					<h6>Sorry, but...</h6>
+					<h:outputText
+						value="... you need to be connected at least to one Social Network in order to display a timeline." />
+				</div>
+			</h:panelGroup>
+		</h:form>
+	</ui:define>
 </ui:composition>

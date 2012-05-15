@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 <body>
-<ui:composition>
-    <h:panelGroup id="linkedintl" layout="block">
-        <h:inputTextarea value="#{linkedInShare.comment}" cols="60" rows="5"/>
-        <h:commandButton action="#{linkedInController.sendUpdate()}"
-                         value="Update your status">
-            <f:ajax render="linkedintl" execute="linkedintl"/>
-        </h:commandButton>
-        <br/>
+	<ui:composition>
+		<h:panelGroup id="linkedintl" layout="block">
+			<h:inputTextarea value="#{linkedInShare.comment}" cols="60" rows="5" />
+			<h:commandButton action="#{linkedInController.sendUpdate()}"
+				value="Update your status">
+				<f:ajax render="linkedintl" execute="linkedintl" />
+			</h:commandButton>
+			<br />
         Place for share stimeline
     </h:panelGroup>
-</ui:composition>
+	</ui:composition>
 </body>
 </html>
