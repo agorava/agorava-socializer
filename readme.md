@@ -4,7 +4,7 @@ Socializer is a demonstration Web App for Agorava. It allows you to connect to v
 ##Building
 You can build Agorava with the command
 
-`mvn clean intall`
+`mvn clean install`
 
 It'll produce the war `agorava-socializer.war` in target Folder. 
 
