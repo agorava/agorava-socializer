@@ -21,11 +21,11 @@
     </context-param>
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Development</param-value>
+        <param-value>Production</param-value>
     </context-param>
     <context-param>
         <param-name>javax.faces.FACELETS_DEVELOPMENT</param-name>
-        <param-value>true</param-value>
+        <param-value>false</param-value>
     </context-param>
     <context-param>
         <param-name>com.sun.faces.allowTextChildren</param-name>
@@ -43,4 +43,5 @@
         <param-name>primefaces.THEME</param-name>
         <param-value>none</param-value>
     </context-param>
+  
 </web-app>
