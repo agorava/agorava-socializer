@@ -369,7 +369,6 @@
                         <version>${version.jetty}</version>
                         <configuration>
                             <webApp>
-                                <contextPath>/agorava-socializer</contextPath>
                                 <overrideDescriptor>src/main/webapp/WEB-INF/web-add.xml</overrideDescriptor>
                             </webApp>
                             <contextXml>src/main/webapp/WEB-INF/jetty-context.xml</contextXml>
