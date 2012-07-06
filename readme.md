@@ -8,7 +8,7 @@ Socializer comes with a Jetty configuration, so you can lauch the webapp directl
 
 and wait that maven download all its needed stuff (can be long the first time)
 When Jetty is launch just point your browser to
-`http://localhost:8080/agorava-socializer`
+`http://localhost:8080`
 and enjoy.
 
 
