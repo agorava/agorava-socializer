@@ -32,7 +32,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.agorava.core.api.MultiServicesManager;
-import org.agorava.core.api.SocialNetworkServicesHub;
+import org.agorava.core.api.SocialMediaApiHub;
 import org.agorava.core.api.event.SocialEvent;
 import org.agorava.core.api.event.StatusUpdated;
 import org.agorava.core.api.oauth.OAuthService;
@@ -117,7 +117,7 @@ public class SocialClient implements Serializable {
 
     @Produces
     @Named
-    public SocialNetworkServicesHub getCurrentHub() {
+    public SocialMediaApiHub getCurrentHub() {
         return manager.getCurrentServiceHub();
     }
 
