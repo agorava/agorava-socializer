@@ -15,16 +15,11 @@
  */
 package org.agorava.socializer;
 
+import org.agorava.*;
+import org.agorava.core.oauth.OAuthApplication;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
-
-import org.agorava.Facebook;
-import org.agorava.FacebookServicesHub;
-import org.agorava.LinkedIn;
-import org.agorava.LinkedInServicesHub;
-import org.agorava.Twitter;
-import org.agorava.TwitterServicesHub;
-import org.agorava.core.cdi.oauth.OAuthApplication;
 
 /**
  * @author Antoine Sabot-Durand
