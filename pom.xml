@@ -217,7 +217,7 @@
 
         <dependency>
             <groupId>org.agorava</groupId>
-            <artifactId>agorava-core-cdi</artifactId>
+            <artifactId>agorava-core-impl-cdi</artifactId>
             <scope>compile</scope>
         </dependency>
         <dependency>
