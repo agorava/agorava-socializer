@@ -16,10 +16,14 @@
 package org.agorava.socializer;
 
 import org.agorava.*;
+import org.agorava.core.api.oauth.Param;
 import org.agorava.core.oauth.OAuthApplication;
+import org.agorava.core.oauth.SimpleSettingsBuilder;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
+
+import static org.agorava.core.oauth.SimpleSettingsBuilder.*;
 
 /**
  * @author Antoine Sabot-Durand
@@ -28,7 +32,9 @@ public class HubProducer {
 
     @Twitter
     @ApplicationScoped
-    @OAuthApplication(apiKey = "${twitter.key}", apiSecret = "${twitter.secret}", callback = "${callback}")
+    @OAuthApplication(params = {@Param(name = API_KEY, value = "${twitter.key}"),
+            @Param(name = API_SECRET, value = "${twitter.secret}"),
+            @Param(name = CALLBACK, value = "${callback}")})
     @Produces
     public TwitterServicesHub twitterProducer(TwitterServicesHub service) {
         return service;
@@ -36,7 +42,10 @@ public class HubProducer {
 
     @LinkedIn
     @ApplicationScoped
-    @OAuthApplication(apiKey = "${linkedin.key}", apiSecret = "${linkedin.secret}", callback = "${callback}")
+    @OAuthApplication(params = {@Param(name = API_KEY, value = "${linkedin.key}"),
+            @Param(name = API_SECRET, value = "${linkedin.secret}"),
+            @Param(name = CALLBACK, value = "${callback}")})
+
     @Produces
     public LinkedInServicesHub linkedInProducer(LinkedInServicesHub service) {
         return service;
@@ -44,7 +53,12 @@ public class HubProducer {
 
     @Facebook
     @ApplicationScoped
-    @OAuthApplication(apiKey = "${facebook.key}", apiSecret = "${facebook.secret}", callback = "${callback}", scope = "read_stream publish_stream")
+    @OAuthApplication(params = {@Param(name = API_KEY, value = "${facebook.key}"),
+            @Param(name = API_SECRET, value = "${facebook.secret}"),
+            @Param(name = CALLBACK, value = "${callback}"),
+            @Param(name = SCOPE, value = "read_stream publish_stream")})
+
+
     @Produces
     public FacebookServicesHub facebookProducer(FacebookServicesHub service) {
         return service;
