@@ -17,11 +17,13 @@ package org.agorava.socializer;
 
 import org.agorava.*;
 import org.agorava.core.api.oauth.Param;
-import org.agorava.core.api.oauth.SettingsBuilder;
 import org.agorava.core.oauth.OAuthApplication;
+import org.agorava.core.oauth.PropertySettingsBuilder;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
+
+import static org.agorava.core.oauth.PropertySettingsBuilder.PREFIX;
 
 /**
  * @author Antoine Sabot-Durand
@@ -30,9 +32,8 @@ public class HubProducer {
 
     @Twitter
     @ApplicationScoped
-    @OAuthApplication(params = {@Param(name = SettingsBuilder.API_KEY, value = "${twitter.key}"),
-            @Param(name = SettingsBuilder.API_SECRET, value = "${twitter.secret}"),
-            @Param(name = SettingsBuilder.CALLBACK, value = "${callback}")})
+    @OAuthApplication(builder = PropertySettingsBuilder.class,
+            params = {@Param(name = PREFIX, value = "twitter")})
     @Produces
     public TwitterServicesHub twitterProducer(TwitterServicesHub service) {
         return service;
@@ -40,10 +41,8 @@ public class HubProducer {
 
     @LinkedIn
     @ApplicationScoped
-    @OAuthApplication(params = {@Param(name = SettingsBuilder.API_KEY, value = "${linkedin.key}"),
-            @Param(name = SettingsBuilder.API_SECRET, value = "${linkedin.secret}"),
-            @Param(name = SettingsBuilder.CALLBACK, value = "${callback}")})
-
+    @OAuthApplication(builder = PropertySettingsBuilder.class,
+            params = {@Param(name = PREFIX, value = "linkedin")})
     @Produces
     public LinkedInServicesHub linkedInProducer(LinkedInServicesHub service) {
         return service;
@@ -51,12 +50,8 @@ public class HubProducer {
 
     @Facebook
     @ApplicationScoped
-    @OAuthApplication(params = {@Param(name = SettingsBuilder.API_KEY, value = "${facebook.key}"),
-            @Param(name = SettingsBuilder.API_SECRET, value = "${facebook.secret}"),
-            @Param(name = SettingsBuilder.CALLBACK, value = "${callback}"),
-            @Param(name = SettingsBuilder.SCOPE, value = "read_stream publish_stream")})
-
-
+    @OAuthApplication(builder = PropertySettingsBuilder.class,
+            params = {@Param(name = PREFIX, value = "facebook")})
     @Produces
     public FacebookServicesHub facebookProducer(FacebookServicesHub service) {
         return service;
