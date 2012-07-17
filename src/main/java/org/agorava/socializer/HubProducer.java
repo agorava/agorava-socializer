@@ -18,12 +18,12 @@ package org.agorava.socializer;
 import org.agorava.*;
 import org.agorava.core.api.oauth.Param;
 import org.agorava.core.oauth.OAuthApplication;
-import org.agorava.core.oauth.PropertySettingsBuilder;
+import org.agorava.core.oauth.PropertyOAuthAppSettingsBuilder;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 
-import static org.agorava.core.oauth.PropertySettingsBuilder.PREFIX;
+import static org.agorava.core.oauth.PropertyOAuthAppSettingsBuilder.PREFIX;
 
 /**
  * @author Antoine Sabot-Durand
@@ -32,7 +32,7 @@ public class HubProducer {
 
     @Twitter
     @ApplicationScoped
-    @OAuthApplication(builder = PropertySettingsBuilder.class,
+    @OAuthApplication(builder = PropertyOAuthAppSettingsBuilder.class,
             params = {@Param(name = PREFIX, value = "twitter")})
     @Produces
     public TwitterServicesHub twitterProducer(TwitterServicesHub service) {
@@ -41,7 +41,7 @@ public class HubProducer {
 
     @LinkedIn
     @ApplicationScoped
-    @OAuthApplication(builder = PropertySettingsBuilder.class,
+    @OAuthApplication(builder = PropertyOAuthAppSettingsBuilder.class,
             params = {@Param(name = PREFIX, value = "linkedin")})
     @Produces
     public LinkedInServicesHub linkedInProducer(LinkedInServicesHub service) {
@@ -50,7 +50,7 @@ public class HubProducer {
 
     @Facebook
     @ApplicationScoped
-    @OAuthApplication(builder = PropertySettingsBuilder.class,
+    @OAuthApplication(builder = PropertyOAuthAppSettingsBuilder.class,
             params = {@Param(name = PREFIX, value = "facebook")})
     @Produces
     public FacebookServicesHub facebookProducer(FacebookServicesHub service) {
