@@ -15,12 +15,16 @@
  */
 package org.agorava.socializer;
 
-import static com.google.common.collect.Lists.newArrayList;
-
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
+import com.google.common.base.Function;
+import com.google.common.collect.Maps;
+import org.agorava.core.api.MultiSessionManager;
+import org.agorava.core.api.SocialMediaApiHub;
+import org.agorava.core.api.event.SocialEvent;
+import org.agorava.core.api.event.StatusUpdated;
+import org.agorava.core.api.oauth.OAuthService;
+import org.agorava.core.api.oauth.OAuthSession;
+import org.agorava.core.api.oauth.OAuthToken;
+import org.jboss.solder.logging.Logger;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
@@ -30,18 +34,12 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
 
-import org.agorava.core.api.MultiServicesManager;
-import org.agorava.core.api.SocialMediaApiHub;
-import org.agorava.core.api.event.SocialEvent;
-import org.agorava.core.api.event.StatusUpdated;
-import org.agorava.core.api.oauth.OAuthService;
-import org.agorava.core.api.oauth.OAuthSession;
-import org.agorava.core.api.oauth.OAuthToken;
-import org.jboss.solder.logging.Logger;
-
-import com.google.common.base.Function;
-import com.google.common.collect.Maps;
+import static com.google.common.collect.Lists.newArrayList;
 
 @Named
 @SessionScoped
@@ -79,13 +77,13 @@ public class SocialClient implements Serializable {
     }
 
     @Inject
-    private MultiServicesManager manager;
+    private MultiSessionManager manager;
 
-    public MultiServicesManager getManager() {
+    public MultiSessionManager getManager() {
         return manager;
     }
 
-    public void setManager(MultiServicesManager manager) {
+    public void setManager(MultiSessionManager manager) {
         this.manager = manager;
     }
 
