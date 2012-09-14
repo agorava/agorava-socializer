@@ -17,7 +17,7 @@ package org.agorava.socializer;
 
 import org.agorava.*;
 import org.agorava.core.api.oauth.Param;
-import org.agorava.core.oauth.OAuthApplication;
+import org.agorava.core.cdi.OAuthApplication;
 import org.agorava.core.oauth.PropertyOAuthAppSettingsBuilder;
 
 import javax.enterprise.context.ApplicationScoped;
