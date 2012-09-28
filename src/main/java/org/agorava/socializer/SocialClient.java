@@ -24,7 +24,8 @@ import org.agorava.core.api.event.StatusUpdated;
 import org.agorava.core.api.oauth.OAuthService;
 import org.agorava.core.api.oauth.OAuthSession;
 import org.agorava.core.api.oauth.OAuthToken;
-import org.jboss.solder.logging.Logger;
+import org.jboss.logging.Logger;
+//import org.jboss.solder.logging.Logger;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;

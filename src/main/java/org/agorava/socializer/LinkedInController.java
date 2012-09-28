@@ -29,7 +29,8 @@ import org.agorava.linkedin.NetworkUpdateService;
 import org.agorava.linkedin.model.NewShare;
 import org.agorava.linkedin.model.NewShare.NewShareVisibility;
 import org.agorava.linkedin.model.NewShare.NewShareVisibilityCode;
-import org.jboss.solder.logging.Logger;
+//import org.jboss.solder.logging.Logger;
+import org.jboss.logging.Logger;
 
 /**
  * @author Antoine Sabot-Durand
