@@ -61,7 +61,7 @@
             to work with JBoss EAP 6. It requires you have access to the JBoss EAP 6 
             maven repository. -->
         <!-- <jboss.bom.version>1.0.0.M6-redhat-1</jboss.bom.version>> -->
-        <version.primefaces>3.3-SNAPSHOT</version.primefaces>
+        <version.primefaces>3.3</version.primefaces>
         <version.primefaces.themes>1.0.4</version.primefaces.themes>
         <version.prettytime>1.0.8.Final</version.prettytime>
         <version.agorava>0.5.0-SNAPSHOT</version.agorava>
