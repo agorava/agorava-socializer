@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright 2012 Agorava
+  ~ Copyright 2013 Agorava
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -16,13 +16,12 @@
   -->
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
 <f:metadata>
-    <f:viewParam name="#{currentHub.verifierParamName}"
+    <f:viewParam name="#{currentService.verifierParamName}"
                  value="#{currentSession.verifier}" required="true"
-                 requiredMessage="We didn't get the authorization from #{currentService.type}. Please go back and Try Again !"/>
+                 requiredMessage="We didn't get the authorization from #{currentService.socialMediaName}. Please go back and Try Again !"/>
     <f:event type="preRenderView"
              listener="#{socialClient.connectCurrentService()}"/>
 </f:metadata>
@@ -41,7 +40,7 @@
 
     <h1>Agorava client Example</h1>
 
-    <p>Getting Authorization from #{currentService.type}</p>
+    <p>Getting Authorization from #{currentService.socialMediaName}</p>
     You're ready to use
     <h:outputLink value="#" onclick="moveOn();">socializer</h:outputLink>
 

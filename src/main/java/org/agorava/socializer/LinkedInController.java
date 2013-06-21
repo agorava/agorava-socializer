@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,13 +15,6 @@
  */
 package org.agorava.socializer;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
-import javax.enterprise.event.Observes;
-import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
-import javax.inject.Named;
-
 import org.agorava.LinkedIn;
 import org.agorava.core.api.event.SocialEvent;
 import org.agorava.core.api.event.StatusUpdated;
@@ -29,8 +22,15 @@ import org.agorava.linkedin.NetworkUpdateService;
 import org.agorava.linkedin.model.NewShare;
 import org.agorava.linkedin.model.NewShare.NewShareVisibility;
 import org.agorava.linkedin.model.NewShare.NewShareVisibilityCode;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.event.Observes;
+import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
+import javax.inject.Named;
+
 //import org.jboss.solder.logging.Logger;
-import org.jboss.logging.Logger;
 
 /**
  * @author Antoine Sabot-Durand
@@ -46,8 +46,8 @@ public class LinkedInController {
     @Inject
     private NetworkUpdateService updateService;
 
-    @Inject
-    Logger log;
+   /* @Inject
+    Logger log;*/
 
     @PostConstruct
     public void init() {
@@ -61,7 +61,7 @@ public class LinkedInController {
 
     protected void statusUpdateObserver(@Observes @LinkedIn StatusUpdated statusUpdate) {
         if (statusUpdate.getStatus().equals(SocialEvent.Status.SUCCESS)) {
-            log.debugf("Status update with : %s ", statusUpdate.getMessage());
+            //    log.debugf("Status update with : %s ", statusUpdate.getMessage());
             init();
         }
     }

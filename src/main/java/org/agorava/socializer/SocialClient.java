@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,14 +18,11 @@ package org.agorava.socializer;
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
 import org.agorava.core.api.MultiSessionManager;
-import org.agorava.core.api.SocialMediaApiHub;
 import org.agorava.core.api.event.SocialEvent;
 import org.agorava.core.api.event.StatusUpdated;
 import org.agorava.core.api.oauth.OAuthService;
 import org.agorava.core.api.oauth.OAuthSession;
 import org.agorava.core.api.oauth.OAuthToken;
-import org.jboss.logging.Logger;
-//import org.jboss.solder.logging.Logger;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
@@ -41,6 +38,8 @@ import java.util.List;
 import java.util.Map;
 
 import static com.google.common.collect.Lists.newArrayList;
+
+//import org.jboss.solder.logging.Logger;
 
 @Named
 @SessionScoped
@@ -58,8 +57,8 @@ public class SocialClient implements Serializable {
     private static final String DEFAULT_THEME = "aristo";
     private String currentTheme = DEFAULT_THEME;
 
-    @Inject
-    private Logger log;
+   /* @Inject
+    private Logger log;*/
 
     public String getStatus() {
         return Status;
@@ -114,11 +113,6 @@ public class SocialClient implements Serializable {
         return manager.getCurrentService();
     }
 
-    @Produces
-    @Named
-    public SocialMediaApiHub getCurrentHub() {
-        return manager.getCurrentServiceHub();
-    }
 
     public List<OAuthSession> getSessions() {
         return newArrayList(manager.getActiveSessions());
@@ -148,7 +142,7 @@ public class SocialClient implements Serializable {
 
     public String getTimeLineUrl() {
         if (getCurrentSession() != null && getCurrentSession().isConnected())
-            return "/WEB-INF/fragments/" + getManager().getCurrentService().getType().toLowerCase() + ".xhtml";
+            return "/WEB-INF/fragments/" + getManager().getCurrentService().getSocialMediaName().toLowerCase() + ".xhtml";
         return "";
     }
 
@@ -160,7 +154,7 @@ public class SocialClient implements Serializable {
 
     protected void statusUpdateObserver(@Observes @Any StatusUpdated statusUpdate) {
         if (statusUpdate.getStatus().equals(SocialEvent.Status.SUCCESS)) {
-            log.debugf("Status update with : %s ", statusUpdate.getMessage());
+            //log.debugf("Status update with : %s ", statusUpdate.getMessage());
             setStatus("");
         }
     }

@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.agorava</groupId>
         <artifactId>agorava-parent</artifactId>
-        <version>0.5.2-SNAPSHOT</version>
+        <version>0.6.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>agorava-socializer</artifactId>
@@ -64,7 +64,7 @@
         <version.primefaces>3.3</version.primefaces>
         <version.primefaces.themes>1.0.4</version.primefaces.themes>
         <version.prettytime>1.0.8.Final</version.prettytime>
-        <version.agorava>0.5.0-SNAPSHOT</version.agorava>
+        <version.agoravamodule>0.5.1-SNAPSHOT</version.agoravamodule>
         <version.jetty>8.1.3.v20120416</version.jetty>
 
     </properties>
@@ -216,19 +216,19 @@
         <dependency>
             <groupId>org.agorava</groupId>
             <artifactId>agorava-twitter-cdi</artifactId>
-            <version>${version.agorava}</version>
+            <version>${version.agoravamodule}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.agorava</groupId>
             <artifactId>agorava-facebook-cdi</artifactId>
-            <version>${version.agorava}</version>
+            <version>${version.agoravamodule}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.agorava</groupId>
             <artifactId>agorava-linkedin-cdi</artifactId>
-            <version>${version.agorava}</version>
+            <version>${version.agoravamodule}</version>
             <scope>compile</scope>
         </dependency>
 
