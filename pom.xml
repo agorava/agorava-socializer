@@ -119,10 +119,7 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>org.jboss.logging</groupId>
-            <artifactId>jboss-logging</artifactId>
-        </dependency>
+
 
         <!-- First declare the APIs we depend on and need for compilation. 
             All of them are provided by JBoss AS 7 -->
@@ -267,17 +264,7 @@
             <artifactId>arquillian-protocol-servlet</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.6.4</version>
-        </dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.6.4</version>
-        </dependency>
     </dependencies>
 
 
@@ -380,12 +367,6 @@
                     <artifactId>jsf-impl</artifactId>
                     <version>2.1.3</version>
                 </dependency>
-                <dependency>
-                    <groupId>org.jboss.logging</groupId>
-                    <artifactId>jboss-logging</artifactId>
-                    <scope>compile</scope>
-                </dependency>
-
 
             </dependencies>
 
