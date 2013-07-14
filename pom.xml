@@ -26,7 +26,7 @@
     <artifactId>agorava-socializer</artifactId>
     <packaging>war</packaging>
     <name>Agorava Socializer</name>
-    <version>0.6.0</version>
+    <version>0.6.1-SNAPSHOT</version>
     <description>Demonstration of Agorava in a Java EE application.</description>
     <url>http://agorava.org</url>
     <inceptionYear>2012</inceptionYear>
@@ -449,6 +449,6 @@
         <connection>scm:git:git://github.com/agorava/agorava-socializer.git</connection>
         <developerConnection>scm:git:git@github.com:agorava/agorava-socializer.git</developerConnection>
         <url>https://github.com/agorava/agorava-socializer</url>
-        <tag>0.6.0</tag>
+        <tag>HEAD</tag>
     </scm>
 </project>
