@@ -22,7 +22,7 @@ import org.agorava.core.api.event.SocialEvent;
 import org.agorava.core.api.event.StatusUpdated;
 import org.agorava.core.api.oauth.OAuthService;
 import org.agorava.core.api.oauth.OAuthSession;
-import org.agorava.core.api.oauth.OAuthToken;
+import org.agorava.core.api.oauth.Token;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
@@ -118,7 +118,7 @@ public class SocialClient implements Serializable {
         return newArrayList(manager.getActiveSessions());
     }
 
-    public OAuthToken getAccessToken() {
+    public Token getAccessToken() {
         return getCurrentSession().getAccessToken();
     }
 

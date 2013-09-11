@@ -15,11 +15,11 @@
  */
 package org.agorava.socializer;
 
-import org.agorava.Facebook;
 import org.agorava.LinkedIn;
 import org.agorava.Twitter;
 import org.agorava.core.api.oauth.OAuthAppSettings;
 import org.agorava.core.oauth.PropertyOAuthAppSettingsBuilder;
+import org.agorava.facebook.Facebook;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
