@@ -17,12 +17,12 @@ package org.agorava.socializer;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
-import org.agorava.core.api.MultiSessionManager;
 import org.agorava.core.api.event.SocialEvent;
 import org.agorava.core.api.event.StatusUpdated;
 import org.agorava.core.api.oauth.OAuthService;
 import org.agorava.core.api.oauth.OAuthSession;
 import org.agorava.core.api.oauth.Token;
+import org.agorava.core.api.service.MultiSessionService;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
@@ -55,6 +55,7 @@ public class SocialClient implements Serializable {
     private String selectedService;
 
     private static final String DEFAULT_THEME = "aristo";
+
     private String currentTheme = DEFAULT_THEME;
 
    /* @Inject
@@ -77,13 +78,13 @@ public class SocialClient implements Serializable {
     }
 
     @Inject
-    private MultiSessionManager manager;
+    private MultiSessionService manager;
 
-    public MultiSessionManager getManager() {
+    public MultiSessionService getManager() {
         return manager;
     }
 
-    public void setManager(MultiSessionManager manager) {
+    public void setManager(MultiSessionService manager) {
         this.manager = manager;
     }
 
