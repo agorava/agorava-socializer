@@ -201,6 +201,12 @@
         </dependency>
         <dependency>
             <groupId>org.agorava</groupId>
+            <artifactId>agorava-core-impl-cdi-web</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.agorava</groupId>
             <artifactId>agorava-twitter-cdi</artifactId>
             <version>${version.agoravamodule}</version>
             <scope>compile</scope>

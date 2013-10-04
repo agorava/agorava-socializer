@@ -17,12 +17,13 @@ package org.agorava.socializer;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
+import org.agorava.core.api.UserSessionRepository;
+import org.agorava.core.api.atinject.Current;
 import org.agorava.core.api.event.SocialEvent;
 import org.agorava.core.api.event.StatusUpdated;
 import org.agorava.core.api.oauth.OAuthService;
 import org.agorava.core.api.oauth.OAuthSession;
 import org.agorava.core.api.oauth.Token;
-import org.agorava.core.api.service.MultiSessionService;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
@@ -78,22 +79,25 @@ public class SocialClient implements Serializable {
     }
 
     @Inject
-    private MultiSessionService manager;
+    private UserSessionRepository manager;
 
-    public MultiSessionService getManager() {
+    public UserSessionRepository getManager() {
         return manager;
     }
 
-    public void setManager(MultiSessionService manager) {
+    public void setManager(UserSessionRepository manager) {
         this.manager = manager;
     }
 
+    @Produces
+    @Current
+    @Named
     public OAuthSession getCurrentSession() {
-        return manager.getCurrentSession();
+        return manager.getCurrent();
     }
 
     public void setCurrentSession(OAuthSession currentSession) {
-        manager.setCurrentSession(currentSession);
+        manager.setCurrent(currentSession);
     }
 
     public Map<String, OAuthSession> getSessionsMap() {
@@ -116,7 +120,7 @@ public class SocialClient implements Serializable {
 
 
     public List<OAuthSession> getSessions() {
-        return newArrayList(manager.getActiveSessions());
+        return newArrayList(manager.getAll());
     }
 
     public Token getAccessToken() {
@@ -128,7 +132,7 @@ public class SocialClient implements Serializable {
     }
 
     public String getCurrentSessionName() {
-        return manager.getCurrentSession() == null ? "" : manager.getCurrentSession().toString();
+        return manager.getCurrent() == null ? "" : manager.getCurrent().toString();
     }
 
     public void setCurrentSessionName(String cursrvHdlStr) {
@@ -161,7 +165,7 @@ public class SocialClient implements Serializable {
     }
 
     public void resetConnection() {
-        manager.destroyCurrentSession();
+        manager.removeCurrent();
     }
 
     /**
