@@ -78,26 +78,27 @@ public class SocialClient implements Serializable {
         this.currentTheme = currentTheme;
     }
 
-    @Inject
-    private UserSessionRepository manager;
 
-    public UserSessionRepository getManager() {
-        return manager;
+    @Inject
+    private UserSessionRepository repository;
+
+    public UserSessionRepository getRepository() {
+        return repository;
     }
 
-    public void setManager(UserSessionRepository manager) {
-        this.manager = manager;
+    public void setRepository(UserSessionRepository repository) {
+        this.repository = repository;
     }
 
     @Produces
     @Current
     @Named
     public OAuthSession getCurrentSession() {
-        return manager.getCurrent();
+        return repository.getCurrent();
     }
 
     public void setCurrentSession(OAuthSession currentSession) {
-        manager.setCurrent(currentSession);
+        repository.setCurrent(currentSession);
     }
 
     public Map<String, OAuthSession> getSessionsMap() {
@@ -115,12 +116,12 @@ public class SocialClient implements Serializable {
     @Produces
     @Named
     public OAuthService getCurrentService() {
-        return manager.getCurrentService();
+        return repository.getCurrentService();
     }
 
 
     public List<OAuthSession> getSessions() {
-        return newArrayList(manager.getAll());
+        return newArrayList(repository.getAll());
     }
 
     public Token getAccessToken() {
@@ -128,11 +129,11 @@ public class SocialClient implements Serializable {
     }
 
     public void connectCurrentService() {
-        manager.connectCurrentService();
+        repository.connectCurrentService();
     }
 
     public String getCurrentSessionName() {
-        return manager.getCurrent() == null ? "" : manager.getCurrent().toString();
+        return repository.getCurrent() == null ? "" : repository.getCurrent().toString();
     }
 
     public void setCurrentSessionName(String cursrvHdlStr) {
@@ -147,13 +148,13 @@ public class SocialClient implements Serializable {
 
     public String getTimeLineUrl() {
         if (getCurrentSession() != null && getCurrentSession().isConnected())
-            return "/WEB-INF/fragments/" + getManager().getCurrentService().getSocialMediaName().toLowerCase() + ".xhtml";
+            return "/WEB-INF/fragments/" + getRepository().getCurrentService().getSocialMediaName().toLowerCase() + ".xhtml";
         return "";
     }
 
     public void serviceInit() throws IOException {
 
-        redirectToAuthorizationURL(manager.initNewSession(selectedService));
+        redirectToAuthorizationURL(repository.initNewSession(selectedService));
 
     }
 
@@ -165,7 +166,7 @@ public class SocialClient implements Serializable {
     }
 
     public void resetConnection() {
-        manager.removeCurrent();
+        repository.removeCurrent();
     }
 
     /**

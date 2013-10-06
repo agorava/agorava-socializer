@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2012 Agorava
+  ~ Copyright 2013 Agorava
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+        >
 <h:head>
     <title>Socializer Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -106,7 +106,7 @@
                     <h:form>
                         <ul class="unstyled social-services clearfix">
                             <ui:repeat var="service"
-                                       value="#{socialClient.manager.listOfServices}">
+                                       value="#{socialClient.repository.listOfServices}">
                                 <li><h:outputLink value="#"
                                                   onclick="window.open('startoauth.jsf?service=#{service}','oauth','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,width=400,height=400,modal=yes')">
                                     <h:graphicImage id="serviceIcon" library="gfx"
