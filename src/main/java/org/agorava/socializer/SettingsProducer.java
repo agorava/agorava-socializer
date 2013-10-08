@@ -15,9 +15,9 @@
  */
 package org.agorava.socializer;
 
-import org.agorava.core.api.oauth.OAuthAppSettings;
-import org.agorava.core.api.oauth.OAuthApplication;
-import org.agorava.core.api.oauth.Param;
+import org.agorava.core.api.oauth.application.OAuthAppSettings;
+import org.agorava.core.api.oauth.application.OAuthApplication;
+import org.agorava.core.api.oauth.application.Param;
 import org.agorava.facebook.Facebook;
 import org.agorava.linkedin.LinkedIn;
 import org.agorava.twitter.Twitter;
