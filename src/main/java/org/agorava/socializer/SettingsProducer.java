@@ -16,7 +16,8 @@
 package org.agorava.socializer;
 
 import org.agorava.core.api.oauth.OAuthAppSettings;
-import org.agorava.core.oauth.PropertyOAuthAppSettingsBuilder;
+import org.agorava.core.api.oauth.OAuthApplication;
+import org.agorava.core.api.oauth.Param;
 import org.agorava.facebook.Facebook;
 import org.agorava.linkedin.LinkedIn;
 import org.agorava.twitter.Twitter;
@@ -32,26 +33,20 @@ public class SettingsProducer {
     @ApplicationScoped
     @Produces
     @Twitter
-    public OAuthAppSettings twitterProducer() {
-        PropertyOAuthAppSettingsBuilder builder = new PropertyOAuthAppSettingsBuilder();
-        return builder.prefix("twitter").build();
-    }
+    @OAuthApplication(params = {@Param(name = "prefix", value = "twitter")})
+    public OAuthAppSettings twitterSettings;
 
     @ApplicationScoped
     @Produces
     @LinkedIn
-    public OAuthAppSettings linkedInProducer() {
-        PropertyOAuthAppSettingsBuilder builder = new PropertyOAuthAppSettingsBuilder();
-        return builder.prefix("linkedin").build();
-    }
+    @OAuthApplication(params = {@Param(name = "prefix", value = "linkedin")})
+    public OAuthAppSettings linkedInSettings;
 
     @ApplicationScoped
     @Produces
     @Facebook
-    public OAuthAppSettings facebookProducer() {
-        PropertyOAuthAppSettingsBuilder builder = new PropertyOAuthAppSettingsBuilder();
-        return builder.prefix("facebook").build();
-    }
+    @OAuthApplication(params = {@Param(name = "prefix", value = "facebook")})
+    public OAuthAppSettings facebookSettings;
 
 
 }

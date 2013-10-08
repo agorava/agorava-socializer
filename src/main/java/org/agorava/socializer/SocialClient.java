@@ -21,14 +21,11 @@ import org.agorava.core.api.UserSessionRepository;
 import org.agorava.core.api.atinject.Current;
 import org.agorava.core.api.event.SocialEvent;
 import org.agorava.core.api.event.StatusUpdated;
-import org.agorava.core.api.oauth.OAuthService;
 import org.agorava.core.api.oauth.OAuthSession;
-import org.agorava.core.api.oauth.Token;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Any;
-import javax.enterprise.inject.Produces;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -51,16 +48,17 @@ public class SocialClient implements Serializable {
      */
     private static final long serialVersionUID = 3723552335163650582L;
 
+    private static final String DEFAULT_THEME = "aristo";
+
     private String Status;
 
     private String selectedService;
 
-    private static final String DEFAULT_THEME = "aristo";
-
     private String currentTheme = DEFAULT_THEME;
 
-   /* @Inject
-    private Logger log;*/
+    @Inject
+    @Current
+    private UserSessionRepository repository;
 
     public String getStatus() {
         return Status;
@@ -78,10 +76,6 @@ public class SocialClient implements Serializable {
         this.currentTheme = currentTheme;
     }
 
-
-    @Inject
-    private UserSessionRepository repository;
-
     public UserSessionRepository getRepository() {
         return repository;
     }
@@ -90,9 +84,6 @@ public class SocialClient implements Serializable {
         this.repository = repository;
     }
 
-    @Produces
-    @Current
-    @Named
     public OAuthSession getCurrentSession() {
         return repository.getCurrent();
     }
@@ -113,23 +104,8 @@ public class SocialClient implements Serializable {
         });
     }
 
-    @Produces
-    @Named
-    public OAuthService getCurrentService() {
-        return repository.getCurrentService();
-    }
-
-
     public List<OAuthSession> getSessions() {
         return newArrayList(repository.getAll());
-    }
-
-    public Token getAccessToken() {
-        return getCurrentSession().getAccessToken();
-    }
-
-    public void connectCurrentService() {
-        repository.connectCurrentService();
     }
 
     public String getCurrentSessionName() {
