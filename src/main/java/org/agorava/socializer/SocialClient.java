@@ -17,11 +17,11 @@ package org.agorava.socializer;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
-import org.agorava.core.api.UserSessionRepository;
-import org.agorava.core.api.atinject.Current;
-import org.agorava.core.api.event.SocialEvent;
-import org.agorava.core.api.event.StatusUpdated;
-import org.agorava.core.api.oauth.OAuthSession;
+import org.agorava.api.UserSessionRepository;
+import org.agorava.api.atinject.Current;
+import org.agorava.api.event.SocialEvent;
+import org.agorava.api.event.StatusUpdated;
+import org.agorava.api.oauth.OAuthSession;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
