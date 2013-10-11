@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,8 +29,8 @@ function triggerAllData(data) {
 }
 
 function triggerTooltips() {
-    $(".tooltip-top").tooltip({placement:'top'});
-    $(".tooltip-bottom").tooltip({placement:'bottom'});
-    $(".tooltip-left").tooltip({placement:'left'});
-    $(".tooltip-right").tooltip({placement:'right'});
+    $(".tooltip-top").tooltip({placement: 'top'});
+    $(".tooltip-bottom").tooltip({placement: 'bottom'});
+    $(".tooltip-left").tooltip({placement: 'left'});
+    $(".tooltip-right").tooltip({placement: 'right'});
 }
