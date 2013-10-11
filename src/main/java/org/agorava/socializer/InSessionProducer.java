@@ -16,9 +16,9 @@
 
 package org.agorava.socializer;
 
-import org.agorava.api.UserSessionRepository;
 import org.agorava.api.atinject.Current;
 import org.agorava.api.oauth.OAuthSession;
+import org.agorava.api.storage.UserSessionRepository;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;
