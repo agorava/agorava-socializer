@@ -13,14 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.agorava.socializer;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
+import org.agorava.AgoravaContext;
 import org.agorava.api.atinject.Current;
 import org.agorava.api.event.SocialEvent;
 import org.agorava.api.event.StatusUpdated;
 import org.agorava.api.oauth.OAuthSession;
+import org.agorava.api.service.SessionService;
 import org.agorava.api.storage.UserSessionRepository;
 
 import javax.enterprise.context.SessionScoped;
@@ -49,6 +52,9 @@ public class SocialClient implements Serializable {
     private static final long serialVersionUID = 3723552335163650582L;
 
     private static final String DEFAULT_THEME = "aristo";
+
+    @Inject
+    SessionService sessionService;
 
     private String Status;
 
@@ -124,13 +130,13 @@ public class SocialClient implements Serializable {
 
     public String getTimeLineUrl() {
         if (getCurrentSession() != null && getCurrentSession().isConnected())
-            return "/WEB-INF/fragments/" + getRepository().getCurrentService().getSocialMediaName().toLowerCase() + ".xhtml";
+            return "/WEB-INF/fragments/" + getCurrentSession().getServiceName().toLowerCase() + ".xhtml";
         return "";
     }
 
     public void serviceInit() throws IOException {
 
-        redirectToAuthorizationURL(repository.initNewSession(selectedService));
+        redirectToAuthorizationURL(sessionService.initNewSession(selectedService));
 
     }
 
@@ -157,6 +163,10 @@ public class SocialClient implements Serializable {
      */
     public void setSelectedService(String selectedService) {
         this.selectedService = selectedService;
+    }
+
+    public List<String> getListOfServices() {
+        return AgoravaContext.getListOfServices();
     }
 
 }
