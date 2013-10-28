@@ -16,15 +16,11 @@
 
 package org.agorava.socializer;
 
-import com.google.common.base.Function;
-import com.google.common.collect.Maps;
 import org.agorava.AgoravaContext;
-import org.agorava.api.atinject.Current;
 import org.agorava.api.event.SocialEvent;
 import org.agorava.api.event.StatusUpdated;
 import org.agorava.api.oauth.OAuthSession;
-import org.agorava.api.service.SessionService;
-import org.agorava.api.storage.UserSessionRepository;
+import org.agorava.api.service.OAuthLifeCycleService;
 
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
@@ -36,35 +32,21 @@ import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
-import static com.google.common.collect.Lists.newArrayList;
-
-//import org.jboss.solder.logging.Logger;
 
 @Named
 @SessionScoped
 public class SocialClient implements Serializable {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 3723552335163650582L;
 
-    private static final String DEFAULT_THEME = "aristo";
-
     @Inject
-    SessionService sessionService;
+    OAuthLifeCycleService lifeCycleService;
 
     private String Status;
 
     private String selectedService;
 
-    private String currentTheme = DEFAULT_THEME;
-
-    @Inject
-    @Current
-    private UserSessionRepository repository;
 
     public String getStatus() {
         return Status;
@@ -74,53 +56,24 @@ public class SocialClient implements Serializable {
         Status = status;
     }
 
-    public String getCurrentTheme() {
-        return currentTheme;
-    }
-
-    public void setCurrentTheme(String currentTheme) {
-        this.currentTheme = currentTheme;
-    }
-
-    public UserSessionRepository getRepository() {
-        return repository;
-    }
-
-    public void setRepository(UserSessionRepository repository) {
-        this.repository = repository;
-    }
 
     public OAuthSession getCurrentSession() {
-        return repository.getCurrent();
+        return lifeCycleService.getCurrentSession();
     }
 
     public void setCurrentSession(OAuthSession currentSession) {
-        repository.setCurrent(currentSession);
+        lifeCycleService.setCurrentSession(currentSession);
     }
 
-    public Map<String, OAuthSession> getSessionsMap() {
-        return Maps.uniqueIndex(getSessions(), new Function<OAuthSession, String>() {
-
-            @Override
-            public String apply(OAuthSession arg0) {
-
-                return arg0.toString();
-            }
-
-        });
-    }
 
     public List<OAuthSession> getSessions() {
-        return newArrayList(repository.getAll());
+        return lifeCycleService.getAllActiveSessions();
     }
 
     public String getCurrentSessionName() {
-        return repository.getCurrent() == null ? "" : repository.getCurrent().toString();
+        return getCurrentSession().toString();
     }
 
-    public void setCurrentSessionName(String cursrvHdlStr) {
-        setCurrentSession(getSessionsMap().get(cursrvHdlStr));
-    }
 
     public void redirectToAuthorizationURL(String url) throws IOException {
 
@@ -136,7 +89,7 @@ public class SocialClient implements Serializable {
 
     public void serviceInit() throws IOException {
 
-        redirectToAuthorizationURL(sessionService.initNewSession(selectedService));
+        redirectToAuthorizationURL(lifeCycleService.startDance(selectedService));
 
     }
 
@@ -148,7 +101,7 @@ public class SocialClient implements Serializable {
     }
 
     public void resetConnection() {
-        repository.removeCurrent();
+        lifeCycleService.disconnect();
     }
 
     /**

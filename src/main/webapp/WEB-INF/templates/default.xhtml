@@ -90,10 +90,10 @@
                         <h6>Switch to another Social network</h6>
                         <h:form>
                             <h:selectOneRadio id="chooseService"
-                                              value="#{socialClient.currentSessionName}"
+                                              value="#{socialClient.currentSession}"
                                               layout="pageDirection">
                                 <f:selectItems value="#{socialClient.sessions}" var="serv"
-                                               itemValue="#{serv.name}" itemLabel="#{serv.name}"/>
+                                               itemValue="#{serv}" itemLabel="#{serv.name}"/>
                                 <f:ajax render=":container" onevent="triggerAllData"/>
                             </h:selectOneRadio>
                         </h:form>
