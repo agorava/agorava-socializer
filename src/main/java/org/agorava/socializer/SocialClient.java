@@ -89,7 +89,7 @@ public class SocialClient implements Serializable {
 
     public void serviceInit() throws IOException {
 
-        redirectToAuthorizationURL(lifeCycleService.startDance(selectedService));
+        redirectToAuthorizationURL(lifeCycleService.startDanceFor(selectedService));
 
     }
 
@@ -101,7 +101,7 @@ public class SocialClient implements Serializable {
     }
 
     public void resetConnection() {
-        lifeCycleService.disconnect();
+        lifeCycleService.killCurrentSession();
     }
 
     /**
