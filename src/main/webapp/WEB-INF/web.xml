@@ -49,7 +49,7 @@
     </context-param>
     <servlet>
         <servlet-name>OAuthCallBackCdi</servlet-name>
-        <servlet-class>org.agorava.web.OAuthCallbackServlet</servlet-class>
+        <servlet-class>org.agorava.servlet.OAuthCallbackServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
