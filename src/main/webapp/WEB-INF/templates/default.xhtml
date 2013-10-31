@@ -107,8 +107,8 @@
                         <ul class="unstyled social-services clearfix">
                             <ui:repeat var="service"
                                        value="#{socialClient.listOfServices}">
-                                <li><h:outputLink
-                                        onclick="window.open('startoauth.jsf?service=#{service}&amp;repoid=#{currentRepo.id}','oauth','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,width=400,height=400,modal=yes')">
+                                <li><h:outputLink value="#"
+                                                  onclick="window.open('startoauth.jsf?service=#{service}','oauth','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,width=400,height=400,modal=yes')">
                                 <h:graphicImage id="serviceIcon" library="gfx"
                                                     name="#{service}.png" height="48" width="48"
                                                     styleClass="tooltip-bottom" title="#{service}"/>

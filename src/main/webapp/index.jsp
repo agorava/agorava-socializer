@@ -15,5 +15,5 @@
   --%>
 
 <script language="JavaScript">
-    location.replace('home.jsf?repoid=${currentRepo.id}')
+    location.replace('home.jsf')
 </script>
