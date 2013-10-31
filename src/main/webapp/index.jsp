@@ -14,4 +14,6 @@
   ~ limitations under the License.
   --%>
 
-<% response.sendRedirect("home.jsf"); %>
+<script language="JavaScript">
+    location.replace('home.jsf?repoid=${currentRepo.id}')
+</script>
