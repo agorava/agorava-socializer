@@ -70,6 +70,7 @@
         <version.facebook>0.7.0-SNAPSHOT</version.facebook>
         <version.jetty>8.1.3.v20120416</version.jetty>
 
+        <fileupload.version>1.3</fileupload.version>
     </properties>
 
     <repositories>
@@ -239,6 +240,12 @@
             <groupId>org.ocpsoft.prettytime</groupId>
             <artifactId>prettytime</artifactId>
             <version>${version.prettytime}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${fileupload.version}</version>
         </dependency>
 
 
