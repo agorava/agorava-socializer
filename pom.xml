@@ -67,7 +67,6 @@
         <version.primefaces.themes>1.0.4</version.primefaces.themes>
         <version.prettytime>1.0.8.Final</version.prettytime>
         <version.agoravamodule>0.7.0-SNAPSHOT</version.agoravamodule>
-        <version.facebook>0.7.0-SNAPSHOT</version.facebook>
         <version.jetty>8.1.3.v20120416</version.jetty>
 
         <fileupload.version>1.3</fileupload.version>
@@ -207,26 +206,50 @@
         <dependency>
             <groupId>org.agorava</groupId>
             <artifactId>agorava-core-impl-cdi</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.agorava</groupId>
+            <artifactId>agorava-core-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.agorava</groupId>
+            <artifactId>agorava-twitter-api</artifactId>
+            <version>${version.agoravamodule}</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.agorava</groupId>
+            <artifactId>agorava-facebook-api</artifactId>
+            <version>${version.agoravamodule}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.agorava</groupId>
+            <artifactId>agorava-linkedin-api</artifactId>
+            <version>${version.agoravamodule}</version>
+            <scope>compile</scope>
+        </dependency>
+
 
         <dependency>
             <groupId>org.agorava</groupId>
             <artifactId>agorava-twitter-cdi</artifactId>
             <version>${version.agoravamodule}</version>
-            <scope>compile</scope>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.agorava</groupId>
             <artifactId>agorava-facebook-cdi</artifactId>
-            <version>${version.facebook}</version>
-            <scope>compile</scope>
+            <version>${version.agoravamodule}</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.agorava</groupId>
             <artifactId>agorava-linkedin-cdi</artifactId>
             <version>${version.agoravamodule}</version>
-            <scope>compile</scope>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
@@ -240,12 +263,14 @@
             <groupId>org.ocpsoft.prettytime</groupId>
             <artifactId>prettytime</artifactId>
             <version>${version.prettytime}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>${fileupload.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
 
