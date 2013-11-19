@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.agorava.socializer;
 
 
@@ -45,6 +46,7 @@ public class LinkedInController {
     private NewShare linkedInShare;
 
     @Inject
+    @LinkedIn
     private NetworkUpdateService updateService;
 
    /* @Inject
