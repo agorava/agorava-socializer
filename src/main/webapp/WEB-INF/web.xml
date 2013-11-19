@@ -47,14 +47,4 @@
         <param-name>primefaces.THEME</param-name>
         <param-value>none</param-value>
     </context-param>
-    <servlet>
-        <servlet-name>OAuthCallBackCdi</servlet-name>
-        <servlet-class>org.agorava.servlet.OAuthCallbackServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>OAuthCallBackCdi</servlet-name>
-        <url-pattern>/callback</url-pattern>
-    </servlet-mapping>
-
 </web-app>
