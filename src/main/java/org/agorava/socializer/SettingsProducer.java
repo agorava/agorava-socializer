@@ -13,9 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.agorava.socializer;
 
 import org.agorava.api.oauth.application.OAuthAppSettings;
+import org.agorava.api.oauth.application.OAuthAppSettingsBuilder;
 import org.agorava.api.oauth.application.OAuthApplication;
 import org.agorava.api.oauth.application.Param;
 import org.agorava.facebook.Facebook;
@@ -33,19 +35,19 @@ public class SettingsProducer {
     @ApplicationScoped
     @Produces
     @Twitter
-    @OAuthApplication(params = {@Param(name = "prefix", value = "twitter")})
+    @OAuthApplication(params = {@Param(name = OAuthAppSettingsBuilder.PREFIX, value = "twitter")})
     public OAuthAppSettings twitterSettings;
 
     @ApplicationScoped
     @Produces
     @LinkedIn
-    @OAuthApplication(params = {@Param(name = "prefix", value = "linkedin")})
+    @OAuthApplication(params = {@Param(name = OAuthAppSettingsBuilder.PREFIX, value = "linkedin")})
     public OAuthAppSettings linkedInSettings;
 
     @ApplicationScoped
     @Produces
     @Facebook
-    @OAuthApplication(params = {@Param(name = "prefix", value = "facebook")})
+    @OAuthApplication(params = {@Param(name = OAuthAppSettingsBuilder.PREFIX, value = "facebook")})
     public OAuthAppSettings facebookSettings;
 
 
