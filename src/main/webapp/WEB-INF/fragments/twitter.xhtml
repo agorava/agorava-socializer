@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright 2013 Agorava
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition>
+    <h:panelGroup id="twittertl">
+        <div class="well">
+            <h6>What's new ?</h6>
+
+            <p>
+                <p:inputTextarea value="#{socialClient.status}" counter="counter"
+                                 maxlength="140" counterTemplate="{0}" autoResize="false"
+                                 styleClass="tweet-area"/>
+            </p>
+
+            <p style="text-align: right;">
+                <h:outputText id="counter" style="margin-right:10px;"/>
+
+                <p:commandButton value="Tweet"
+                                 action="#{twitterTimelineServiceImpl.updateStatus(socialClient.status)}"
+                                 styleClass="btn">
+                    <f:ajax render="twittertl" execute="twittertl"/>
+                </p:commandButton>
+            </p>
+        </div>
+
+        <div class="well">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#timeline-twitter-home"
+                                      data-toggle="tab">Timeline</a></li>
+                <li><a href="#timeline-twitter-mentions" data-toggle="tab">Mentions</a></li>
+                <li><a href="#timeline-twitter-favorites" data-toggle="tab">Favorites</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="timeline-twitter-home"
+                     class="tab-pane active timeline-content rounded-5">
+                    <ui:include src="twitter-timeline.xhtml">
+                        <ui:param name="timeline"
+                                  value="#{twitterTimelineServiceImpl.homeTimeline}"/>
+                        <ui:param name="id" value="tlTimeline"/>
+                    </ui:include>
+                </div>
+
+                <div id="timeline-twitter-mentions"
+                     class="tab-pane timeline-content rounded-5">
+                    <ui:include src="twitter-timeline.xhtml">
+                        <ui:param name="timeline"
+                                  value="#{twitterTimelineServiceImpl.mentions}"/>
+                        <ui:param name="id" value="tlMention"/>
+                    </ui:include>
+                </div>
+
+                <div id="timeline-twitter-favorites"
+                     class="tab-pane timeline-content rounded-5">
+                    <ui:include src="twitter-timeline.xhtml">
+                        <ui:param name="timeline"
+                                  value="#{twitterTimelineServiceImpl.favorites}"/>
+                        <ui:param name="id" value="tlFavorite"/>
+                    </ui:include>
+                </div>
+            </div>
+        </div>
+    </h:panelGroup>
+</ui:composition>
+</html>
