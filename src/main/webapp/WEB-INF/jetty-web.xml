@@ -22,4 +22,5 @@
             <Item>-org.eclipse.jetty.servlet.ServletContextHandler.Decorator</Item>
         </Array>
     </Set>
+    <Set name="overrideDescriptor">src/main/webapp/WEB-INF/override-web.xml</Set>
 </Configure>

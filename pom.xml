@@ -16,7 +16,8 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -66,7 +67,7 @@
         <version.primefaces.themes>1.0.4</version.primefaces.themes>
         <version.prettytime>1.0.8.Final</version.prettytime>
         <version.agoravamodule>0.7.0</version.agoravamodule>
-        <version.jetty>8.1.3.v20120416</version.jetty>
+        <version.jetty>9.0.7.v20131107</version.jetty>
 
         <fileupload.version>1.3</fileupload.version>
     </properties>
@@ -86,7 +87,7 @@
             <dependency>
                 <groupId>org.agorava</groupId>
                 <artifactId>agorava-bom</artifactId>
-                <version>0.7.0</version>
+                <version>0.7.1-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -380,17 +381,16 @@
             </dependencies>
 
             <build>
-                <defaultGoal>clean jetty:run</defaultGoal>
+                <defaultGoal>clean jetty:run-forked</defaultGoal>
                 <plugins>
                     <plugin>
-                        <groupId>org.mortbay.jetty</groupId>
+                        <groupId>org.eclipse.jetty</groupId>
                         <artifactId>jetty-maven-plugin</artifactId>
                         <version>${version.jetty}</version>
                         <configuration>
-                            <webApp>
-                                <overrideDescriptor>src/main/webapp/WEB-INF/web-add.xml</overrideDescriptor>
-                            </webApp>
-                            <contextXml>src/main/webapp/WEB-INF/jetty-context.xml</contextXml>
+                            <stopPort>1353</stopPort>
+                            <stopKey>quit</stopKey>
+                            <contextXml>src/main/webapp/WEB-INF/jetty-web.xml</contextXml>
                         </configuration>
                     </plugin>
                 </plugins>
