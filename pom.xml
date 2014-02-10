@@ -46,6 +46,14 @@
             <name>Paul Dijou</name>
             <timezone>CET</timezone>
         </developer>
+        <developer>
+            <name>Werner Keil</name>
+            <timezone>CET</timezone>
+        </developer>
+         <developer>
+            <name>Ove Ranheim</name>
+            <timezone>CET</timezone>
+        </developer>
     </developers>
 
     <properties>
