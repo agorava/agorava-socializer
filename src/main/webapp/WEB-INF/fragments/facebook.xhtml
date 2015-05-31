@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2013 Agorava
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:panelGroup id="facebooktl" layout="block">
+        <div class="well">
+            <h6>What's on your mind?</h6>
+
+            <p>
+                <p:inputTextarea value="#{socialClient.status}"
+                                 styleClass="tweet-area"/>
+            </p>
+
+            <p style="text-align: right;">
+                <p:commandButton
+                        action="#{facebookFeed.updateStatus(socialClient.status)}"
+                        value="Post" styleClass="btn">
+                    <f:ajax render="facebooktl" execute="facebooktl"/>
+                </p:commandButton>
+            </p>
+        </div>
+
+        <div class="well">
+            <div class="timeline-content rounded-5">
+                <p:dataList id="facebookFeed" value="#{facebookFeed.homeFeed}"
+                            var="post" type="none">
+                    <p:column>
+                        <div class="status post-facebook">
+                            <h:panelGrid columns="2" columnClasses="avatar,verticalTop">
+                                <h:panelGroup>
+                                    <p:graphicImage id="pict"
+                                                    value="https://graph.facebook.com/#{post.from.id}/picture"
+                                                    styleClass="rounded-5 tooltip-top" title="#{post.from.name}"/>
+                                </h:panelGroup>
+
+                                <h:panelGroup>
+                                    <p>
+                                        <h:outputLink value="http://www.facebook.com/#{post.from.id}"
+                                                      styleClass="author">
+                                            <h:outputText value="#{post.from.name}" styleClass="label"/>
+                                        </h:outputLink>
+
+                                        <h:outputText value="#{post.createdTime}"
+                                                      styleClass="statusInfo">
+                                            <f:converter converterId="org.ocpsoft.PrettyTimeConverter"/>
+                                        </h:outputText>
+
+                                        <h:outputText
+                                                value=", #{post.commentCount} comment#{post.commentCount > 1 ? 's' : ''}, #{post.sharesCount} share#{post.sharesCount > 1 ? 's' : ''}"
+                                                styleClass="statusInfo"/>
+
+                                        <p:graphicImage url="#{post.icon}"
+                                                        rendered="#{!(empty post.icon)}"
+                                                        styleClass="facebook-post-icon"/>
+                                    </p>
+
+                                    <p>
+                                        <h:outputText value="#{post.message}" escape="false"
+                                                      rendered="#{!(empty post.message)}"/>
+                                    </p>
+
+                                    <p>
+                                        <h:panelGrid columns="2"
+                                                     columnClasses="verticalTop,verticalTop,verticalTopFixed">
+                                            <!--COL1-->
+                                            <h:panelGroup>
+
+                                                <!--POST, CHECKIN, LINK, NOTE,  STATUS,-->
+
+                                                <!--POST VIDEO-->
+                                                <h:panelGroup rendered="#{post.type eq 'VIDEO'}">
+                                                    <h:outputLink value="#{post.link}">
+                                                        <p:graphicImage url="#{post.picture}"/>
+                                                    </h:outputLink>
+
+                                                    <p:media value="#{post.link}" width="300" height="200"
+                                                             player="quicktime" rendered="#{post.type eq 'MUSIC'}"/>
+                                                    <p:media value="#{post.link}" width="300" height="200"
+                                                             player="flash" rendered="#{post.type eq 'SWF'}"/>
+
+                                                </h:panelGroup>
+                                                <!--POST PHOTO-->
+                                                <h:panelGroup rendered="#{post.type eq 'PHOTO'}">
+                                                    <h:outputLink value="#{post.link}">
+                                                        <p:graphicImage url="#{post.picture}"
+                                                                        rendered="#{!(empty post.picture)}"/>
+                                                        <h:outputText value="#{post.name}"
+                                                                      rendered="#{empty post.picture}"/>
+                                                    </h:outputLink>
+                                                </h:panelGroup>
+                                                <!--POST LINK-->
+                                                <h:panelGroup rendered="#{post.type eq 'LINK'}">
+                                                    <h:outputLink value="#{post.link}">
+                                                        <h:outputText value="#{post.name}"/>
+                                                    </h:outputLink>
+                                                    <br/>
+                                                    <h:outputText value="#{post.description}" escape="false"
+                                                                  rendered="#{!(empty post.description)}"/>
+
+                                                </h:panelGroup>
+
+                                            </h:panelGroup>
+
+                                            <!--COL2-->
+                                            <h:panelGroup>
+                                                <h:outputText value="#{post.description}" escape="false"
+                                                              rendered="#{!(empty post.description) and !(post.type eq 'LINK')}"/>
+                                                <br/>
+
+                                            </h:panelGroup>
+
+                                        </h:panelGrid>
+                                    </p>
+
+                                    <!--<h:outputText value="name #{post.name}"/>-->
+                                    <!--<br/>-->
+                                    <!--<h:outputText value="caption #{post.caption}"/>-->
+
+
+                                    <h:panelGroup rendered="#{post.commentCount > 0}">
+                                        <p>
+                                            <a class="btn" data-toggle="collapse"
+                                               data-target="#comments-#{post.id}"> <h:outputText
+                                                    value="#{post.commentCount} comment#{post.commentCount > 1 ? 's' : ''}"/>
+                                            </a>
+                                        </p>
+
+                                        <div id="comments-#{post.id}" class="collapse">
+                                            <p:dataList value="#{post.comments}" var="comment"
+                                                        type="none" styleClass="comments rounded-5">
+                                                <p:column>
+                                                    <div class="comment">
+                                                        <h:panelGrid columns="2"
+                                                                     columnClasses="avatar,verticalTop">
+                                                            <h:panelGroup>
+                                                                <p:graphicImage id="pict"
+                                                                                value="https://graph.facebook.com/#{comment.from.id}/picture"
+                                                                                styleClass="rounded-5 tooltip-top"
+                                                                                title="#{comment.from.name}"/>
+                                                            </h:panelGroup>
+
+                                                            <h:panelGroup>
+                                                                <p>
+                                                                    <h:outputLink
+                                                                            value="http://www.facebook.com/#{comment.from.id}"
+                                                                            styleClass="author">
+                                                                        <h:outputText value="#{comment.from.name}"
+                                                                                      styleClass="label"/>
+                                                                    </h:outputLink>
+
+                                                                    <h:outputText value="#{comment.createdTime}"
+                                                                                  styleClass="statusInfo">
+                                                                        <f:converter
+                                                                                converterId="org.ocpsoft.PrettyTimeConverter"/>
+                                                                    </h:outputText>
+                                                                </p>
+
+                                                                <p>
+                                                                    <h:outputText value="#{comment.message}"/>
+                                                                </p>
+                                                            </h:panelGroup>
+                                                        </h:panelGrid>
+                                                    </div>
+                                                </p:column>
+                                            </p:dataList>
+                                        </div>
+                                    </h:panelGroup>
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </div>
+                    </p:column>
+                </p:dataList>
+            </div>
+        </div>
+    </h:panelGroup>
+</ui:composition>

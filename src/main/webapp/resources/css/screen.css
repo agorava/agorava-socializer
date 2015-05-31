@@ -1,0 +1,249 @@
+/*
+ * Copyright 2013 Agorava
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * Copyright 2013 Agorava
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * Copyright 2013 Agorava
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * Copyright 2012 Agorava
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body {
+    background-color: #505050;
+    font-family: Verdana, sans-serif;
+    font-size: 0.9em;
+}
+
+form {
+    margin-bottom: 0px;
+}
+
+label {
+    display: inline;
+}
+
+code {
+    font-size: 1.1em;
+}
+
+span.invalid {
+    padding-left: 3px;
+    color: red;
+}
+
+.reponse {
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+.verticalTop {
+    vertical-align: top;
+}
+
+.verticalBottom {
+    vertical-align: bottom;
+}
+
+.avatar {
+    vertical-align: top;
+    width: 70px;
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.title h1 {
+    color: #999999;
+    font-size: 60px;
+    letter-spacing: -1px;
+    line-height: 65px;
+    text-shadow: 0px 3px 8px #2A2A2A;
+}
+
+.title h6 {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+ul.social-services li {
+    float: left;
+    margin-right: 10px;
+}
+
+ul.social-services li:last-child {
+    margin-right: 0px;
+}
+
+.well h6 {
+    margin-bottom: 5px;
+}
+
+.tweet-area {
+    width: 98%;
+    height: 56px;
+    overflow: hidden;
+}
+
+.rounded-5, .rounded-5 .ui-widget-content {
+    border-radius: 5px;
+}
+
+.timeline-content, .comments {
+    background-color: white;
+    border: 1px solid #DDDDDD;
+}
+
+.timeline-content .status, .comments .comment {
+    padding: 10px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.timeline-content .status:last-child, .comments .comment:last-child {
+    border-bottom: 0px;
+}
+
+.status .author {
+    margin-right: 10px;
+}
+
+.status a.author:hover {
+    text-decoration: none;
+}
+
+.status a.author:hover .label {
+    background-color: #B94A48;
+}
+
+.status .statusInfo {
+    font-style: italic;
+    color: #999999;
+}
+
+.status .actions {
+    margin-top: 10px;
+}
+
+.status .actions a {
+    margin-right: 10px;
+}
+
+.status .actions a:last-child {
+    margin-right: 0px;
+}
+
+.btn i {
+    margin-right: 5px;
+}
+
+.btn-dual:hover {
+    background-color: #bd362f;
+    background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: -ms-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
+    background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+    background-image: linear-gradient(top, #ee5f5b, #bd362f);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#bd362f', GradientType=0);
+    border-color: #bd362f #bd362f #802420;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+
+.btn-dual:hover .default-content, .btn-dual .alt-content {
+    display: none;
+}
+
+.btn-dual:hover .alt-content, .btn-dual .default-content {
+    display: inline;
+}
+
+.facebook-post-icon {
+    margin-left: 10px;
+    position: relative;
+    top: -2px;
+}
+
+.comment {
+    padding: 10px;
+}
+
+.panel-collapse {
+    border: 1px solid #E5E5E5;
+}
+
+.panel-collapse .header {
+    padding: 8px 15px;
+}
+
+.panel-collapse .content .inner {
+    border-top: 1px solid #E5E5E5;
+    padding: 9px 15px;
+}
+
+@media ( max-width: 767px) {
+    .tweet-area {
+        height: 77px;
+    }
+
+    .actions a {
+        margin-bottom: 10px;
+    }
+}
