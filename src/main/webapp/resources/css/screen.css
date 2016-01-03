@@ -135,6 +135,12 @@ ul.social-services li:last-child {
     margin-bottom: 5px;
 }
 
+.post-area {
+    width: 98%;
+    height: 56px;
+    overflow: hidden;
+}
+
 .tweet-area {
     width: 98%;
     height: 56px;
