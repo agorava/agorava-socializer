@@ -274,6 +274,19 @@
 			<version>${version.agoravamodule}</version>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.agorava</groupId>
+			<artifactId>agorava-xing-api</artifactId>
+			<version>0.2.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.agorava</groupId>
+			<artifactId>agorava-xing-cdi</artifactId>
+			<version>0.2.1-SNAPSHOT</version>
+			<scope>runtime</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.primefaces</groupId>

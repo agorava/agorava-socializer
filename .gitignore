@@ -9,3 +9,4 @@ rebel.xml
 impl/coverage.ec
 *.DS_Store
 *.iml
+/.tern-project

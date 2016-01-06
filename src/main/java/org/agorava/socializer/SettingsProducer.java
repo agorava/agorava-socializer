@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,12 +23,14 @@ import org.agorava.api.oauth.application.Param;
 import org.agorava.facebook.Facebook;
 import org.agorava.linkedin.LinkedIn;
 import org.agorava.twitter.Twitter;
+import org.agorava.xing.Xing;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 
 /**
  * @author Antoine Sabot-Durand
+ * @author Werner Keil
  */
 public class SettingsProducer {
 
@@ -49,6 +51,12 @@ public class SettingsProducer {
     @Facebook
     @OAuthApplication(params = {@Param(name = OAuthAppSettingsBuilder.PREFIX, value = "facebook")})
     public OAuthAppSettings facebookSettings;
+    
+    @ApplicationScoped
+    @Produces
+    @Xing
+    @OAuthApplication(params = {@Param(name = OAuthAppSettingsBuilder.PREFIX, value = "xing")})
+    public OAuthAppSettings xingSettings;
 
 
 }
