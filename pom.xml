@@ -237,6 +237,7 @@
 			<artifactId>agorava-core-api</artifactId>
 		</dependency>
 
+		<!-- Twitter -->
 		<dependency>
 			<groupId>org.agorava</groupId>
 			<artifactId>agorava-twitter-api</artifactId>
@@ -245,28 +246,31 @@
 		</dependency>
 		<dependency>
 			<groupId>org.agorava</groupId>
+			<artifactId>agorava-twitter-cdi</artifactId>
+			<version>${version.agoravamodule}</version>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<!-- Facebook -->
+		<dependency>
+			<groupId>org.agorava</groupId>
 			<artifactId>agorava-facebook-api</artifactId>
 			<version>${version.agoravamodule}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.agorava</groupId>
-			<artifactId>agorava-linkedin-api</artifactId>
-			<version>${version.agoravamodule}</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.agorava</groupId>
-			<artifactId>agorava-twitter-cdi</artifactId>
-			<version>${version.agoravamodule}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.agorava</groupId>
 			<artifactId>agorava-facebook-cdi</artifactId>
 			<version>${version.agoravamodule}</version>
 			<scope>runtime</scope>
+		</dependency>
+		
+		<!-- LinkedIn -->
+		<dependency>
+			<groupId>org.agorava</groupId>
+			<artifactId>agorava-linkedin-api</artifactId>
+			<version>${version.agoravamodule}</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.agorava</groupId>
@@ -275,16 +279,17 @@
 			<scope>runtime</scope>
 		</dependency>
 		
+		<!-- XING -->
 		<dependency>
 			<groupId>org.agorava</groupId>
 			<artifactId>agorava-xing-api</artifactId>
-			<version>0.2.1-SNAPSHOT</version>
+			<version>0.3.0-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.agorava</groupId>
 			<artifactId>agorava-xing-cdi</artifactId>
-			<version>0.2.1-SNAPSHOT</version>
+			<version>0.3.0-SNAPSHOT</version>
 			<scope>runtime</scope>
 		</dependency>
 
