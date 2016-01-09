@@ -293,6 +293,21 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<!-- GitHub -->
+		<dependency>
+			<groupId>org.agorava</groupId>
+			<artifactId>agorava-github-api</artifactId>
+			<version>${version.agoravamodule}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.agorava</groupId>
+			<artifactId>agorava-github-cdi</artifactId>
+			<version>${version.agoravamodule}</version>
+			<scope>runtime</scope>
+		</dependency>
+		
+		
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>

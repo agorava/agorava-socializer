@@ -74,8 +74,8 @@
                         <h:panelGrid columns="2" width="100%"
                                      columnClasses="avatar,verticalTop">
                             <h:graphicImage
-                                    value="#{currentSession.userProfile.profileImageUrl}"/>
-
+                                    value="#{currentSession.userProfile.profileImageUrl}" height="256" width="256"/>
+							<br/>
                             <h:panelGroup>
                                 <p>
                                     <h:outputText value="#{currentSession.userProfile.fullName}"/>
