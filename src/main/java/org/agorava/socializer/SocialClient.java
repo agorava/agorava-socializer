@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2013-2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 
-
 @Named
 @SessionScoped
 public class SocialClient implements Serializable {
@@ -65,7 +64,6 @@ public class SocialClient implements Serializable {
         lifeCycleService.setCurrentSession(currentSession);
     }
 
-
     public List<OAuthSession> getSessions() {
         return lifeCycleService.getAllActiveSessions();
     }
@@ -73,7 +71,6 @@ public class SocialClient implements Serializable {
     public String getCurrentSessionName() {
         return getCurrentSession().toString();
     }
-
 
     public void redirectToAuthorizationURL(String url) throws IOException {
 
