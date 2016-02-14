@@ -237,6 +237,8 @@
 			<artifactId>agorava-core-api</artifactId>
 		</dependency>
 
+		<!-- Agorava connectors -->
+			
 		<!-- Twitter -->
 		<dependency>
 			<groupId>org.agorava</groupId>
