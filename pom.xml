@@ -422,6 +422,7 @@
 
 	<profiles>
 		<profile>
+		    <!-- TODO this is defunct, do not use until we switch to other Cloud service -->
 			<id>cloudbees</id>
 			<build>
 				<resources>
