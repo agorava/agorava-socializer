@@ -29,9 +29,13 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Named
 @SessionScoped
@@ -39,6 +43,8 @@ public class SocialClient implements Serializable {
 
     private static final long serialVersionUID = 3723552335163650582L;
 
+    private static final Logger LOGGER = Logger.getLogger(SocialClient.class.getName());
+    
     @Inject
     OAuthLifeCycleService lifeCycleService;
 
@@ -116,7 +122,20 @@ public class SocialClient implements Serializable {
     }
 
     public List<String> getListOfServices() {
-        return AgoravaContext.getListOfServices();
+    	List<String> availableServices = AgoravaContext.getListOfServices();
+    	List<String> list = new ArrayList<String>();
+    	for (String service : availableServices) {
+    		LOGGER.log(Level.FINEST, "Available service: " + service);
+    		try {
+    			SocialFeature feature = SocialFeature.valueOf(service);
+    			if (feature.isActive()) {
+    				LOGGER.log(Level.INFO, "Adding service: " + service); // TODO change to finer
+    				list.add(service);
+    			}
+    		} catch (Exception e) {
+    			LOGGER.log(Level.WARNING, "Error", e);
+    		}
+    	}
+    	return list;
     }
-
 }
