@@ -40,11 +40,10 @@ public class SocialConfiguration implements TogglzConfig {
 
 	public StateRepository getStateRepository() {
 		return new FileBasedStateRepository(new File(USER_HOME + File.separator
-				+ ".quantifier-features.properties"));
+				+ ".socializer-features.properties"));
 	}
 
 	public UserProvider getUserProvider() {
-		// return new ServletUserProvider("admin");
 		return new UserProvider() {
 			@Override
 			public FeatureUser getCurrentUser() {
@@ -52,5 +51,4 @@ public class SocialConfiguration implements TogglzConfig {
 			}
 		};
 	}
-
 }
