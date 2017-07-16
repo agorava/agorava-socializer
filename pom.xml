@@ -60,7 +60,7 @@
 			below to use version 1.0.0.M6-redhat-1 which is a release certified to work 
 			with JBoss EAP 6. It requires you have access to the JBoss EAP 6 maven repository. -->
 		<!-- <jboss.bom.version>1.0.0.M6-redhat-1</jboss.bom.version>> -->
-		<version.primefaces>6.1</version.primefaces>
+		<version.primefaces>4.0</version.primefaces>
 		<version.prettytime>1.0.8.Final</version.prettytime>
 		<version.agoravamodule>${project.version}</version.agoravamodule>
 		<version.jetty>9.0.7.v20131107</version.jetty>
