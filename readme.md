@@ -1,4 +1,4 @@
-#Welcome to Agorava Socializer
+# Welcome to Agorava Socializer
 Socializer is a demonstration Web App for Agorava. It allows you to connect to various social Media, and see your timeline and post update.
 
 ## Running
@@ -20,7 +20,7 @@ You can build Agorava with the command
 It'll produce the war `agorava-socializer.war` in target Folder. 
 
 ## Deploy
-Right now Socializer was tested with JBoss 7.1.1 and WildFly 8.x. We are in the process of testing validating it with others servers
+Right now Socializer was tested with Jetty, JBoss 7.1.1 and WildFly 8.x. We are in the process of testing validating it with others servers
 
 ## Issues
 Please report your issues to
