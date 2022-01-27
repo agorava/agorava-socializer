@@ -64,7 +64,7 @@
 		<version.prettytime>1.0.8.Final</version.prettytime>
 		<version.agoravamodule>${project.version}</version.agoravamodule>
 		<version.jetty>9.0.7.v20131107</version.jetty>
-		<fileupload.version>1.3</fileupload.version>
+		<fileupload.version>1.3.3</fileupload.version>
 		<toglz.version>2.3.0.RC1</toglz.version>
 	</properties>
 
