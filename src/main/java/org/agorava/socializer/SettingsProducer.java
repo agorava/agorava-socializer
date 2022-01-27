@@ -21,10 +21,10 @@ import org.agorava.api.oauth.application.OAuthAppSettingsBuilder;
 import org.agorava.api.oauth.application.OAuthApplication;
 import org.agorava.api.oauth.application.Param;
 import org.agorava.facebook.Facebook;
-import org.agorava.github.GitHub;
+//import org.agorava.github.GitHub;
 import org.agorava.linkedin.LinkedIn;
 import org.agorava.twitter.Twitter;
-import org.agorava.xing.Xing;
+//import org.agorava.xing.Xing;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -53,6 +53,7 @@ public class SettingsProducer {
     @OAuthApplication(params = {@Param(name = OAuthAppSettingsBuilder.PREFIX, value = "facebook")})
     public OAuthAppSettings facebookSettings;
     
+    /*
     @ApplicationScoped
     @Produces
     @Xing
@@ -64,4 +65,5 @@ public class SettingsProducer {
     @GitHub
     @OAuthApplication(params = {@Param(name = OAuthAppSettingsBuilder.PREFIX, value = "github")})
     public OAuthAppSettings gitHubSettings;
+    */
 }
