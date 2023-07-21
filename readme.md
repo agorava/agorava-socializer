@@ -23,5 +23,4 @@ It'll produce the war `agorava-socializer.war` in target Folder.
 Right now Socializer was tested with Jetty, JBoss 7.1.1 and WildFly 8-12. We are in the process of testing validating it with others servers
 
 ## Issues
-Please report your issues to
-`https://github.com/agorava/agorava-socializer/issues`
+Please report your issues to [issues](https://github.com/agorava/agorava-socializer/issues).
